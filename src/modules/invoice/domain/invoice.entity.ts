@@ -52,19 +52,11 @@ export default class Invoice extends BaseEntity implements AggregateRoot {
     this._document = document;
   }
 
-  addressToString(): string {
-    return `${this._address.street}, ${this._address.number} - ${this._address.complement} - ${this._address.city} - ${this._address.state} - ${this._address.zipCode}`;
-  }
-
-  changeAddress(address: Address) {
+  set address(address: Address) {
     this._address = address;
   }
 
-  addItem(item: Product) {
-    this._items.push(item);
-  }
-
-  removeItem(item: Product) {
-    this._items = this._items.filter((i) => i.id !== item.id);
+  set items(items: Product[]) {
+    this._items = items;
   }
 }
