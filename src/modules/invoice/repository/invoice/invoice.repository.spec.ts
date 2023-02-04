@@ -134,4 +134,10 @@ describe('InvoiceRepositoryTests', () => {
     expect(invoiceFound.createdAt).toBeDefined();
     expect(invoiceFound.updatedAt).toBeDefined();
   });
+
+  it('should throw an error when invoice not found', async () => {
+    const invoiceRepository = new InvoiceRepository();
+
+    await expect(invoiceRepository.find('1')).rejects.toThrowError("Invoice not found");
+  });
 });
