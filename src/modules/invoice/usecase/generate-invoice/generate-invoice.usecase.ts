@@ -1,10 +1,11 @@
+import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import Address from "../../domain/address.valueobject";
 import Invoice from "../../domain/invoice.entity";
 import Product from "../../domain/product.entity";
 import InvoiceGateway from "../../gateway/invoice.gateway";
 import { GenerateInvoiceUseCaseInputDto, GenerateInvoiceUseCaseOutputDto } from "./generate-invoice.dto";
 
-export default class GenerateInvoiceUseCase {
+export default class GenerateInvoiceUseCase implements UseCaseInterface {
   private invoiceGateway: InvoiceGateway;
 
   constructor(invoiceGateway: InvoiceGateway) {

@@ -1,8 +1,9 @@
+import UseCaseInterface from "../../../@shared/usecase/use-case.interface";
 import Product from "../../domain/product.entity";
 import InvoiceGateway from "../../gateway/invoice.gateway";
 import { FindInvoiceUseCaseInputDTO, FindInvoiceUseCaseOutputDTO } from "./find-invoice.dto";
 
-export default class FindInvoiceUseCase {
+export default class FindInvoiceUseCase implements UseCaseInterface {
 
   private readonly invoiceRepository: InvoiceGateway;
 
