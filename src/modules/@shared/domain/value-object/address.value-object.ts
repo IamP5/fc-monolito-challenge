@@ -1,4 +1,4 @@
-import ValueObject from "../../@shared/domain/value-object/value-object.interface";
+import ValueObject from "./value-object.interface";
 
 export type AddressProps = {
   street: string;
