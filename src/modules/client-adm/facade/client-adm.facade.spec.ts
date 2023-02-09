@@ -35,8 +35,16 @@ describe("ClientAdmFacade test", () => {
     const input = {
       id: "1",
       name: "Client 1",
-      email: "x@x.com",
-      address: "Address 1",
+      email: "client@email.com",
+      document: "Document 1",
+      address: {
+        street: "Street 1",
+        number: "1",
+        complement: "Complement 1",
+        city: "City 1",
+        state: "State 1",
+        zipCode: "ZipCode 1",
+      },
     };
 
     await facade.add(input);
@@ -46,26 +54,30 @@ describe("ClientAdmFacade test", () => {
     expect(client).toBeDefined();
     expect(client.name).toBe(input.name);
     expect(client.email).toBe(input.email);
-    expect(client.street).toBe(input.address);
-
+    expect(client.street).toBe(input.address.street);
+    expect(client.number).toBe(input.address.number);
+    expect(client.complement).toBe(input.address.complement);
+    expect(client.city).toBe(input.address.city);
+    expect(client.state).toBe(input.address.state);
+    expect(client.zipCode).toBe(input.address.zipCode);
   });
 
   it("should find a client", async () => {
-    // const repository = new ClientRepository();
-    // const findUsecase = new FindClientUseCase(repository);
-    // const addUsecase = new AddClientUseCase(repository);
-    // const facade = new ClientAdmFacade({
-    //   addUsecase: addUsecase,
-    //   findUsecase: findUsecase,
-    // });
-
     const facade = ClientAdmFacadeFactory.create();
 
     const input = {
       id: "1",
       name: "Client 1",
-      email: "x@x.com",
-      address: "Address 1",
+      email: "client@email.com",
+      document: "Document 1",
+      address: {
+        street: "Street 1",
+        number: "1",
+        complement: "Complement 1",
+        city: "City 1",
+        state: "State 1",
+        zipCode: "ZipCode 1",
+      },
     };
 
     await facade.add(input);
@@ -76,6 +88,13 @@ describe("ClientAdmFacade test", () => {
     expect(client.id).toBe(input.id);
     expect(client.name).toBe(input.name);
     expect(client.email).toBe(input.email);
-    expect(client.address).toBe(input.address);
+    expect(client.address).toStrictEqual({
+      street: input.address.street,
+      number: input.address.number,
+      complement: input.address.complement,
+      city: input.address.city,
+      state: input.address.state,
+      zipCode: input.address.zipCode,
+    });
   });
 });
