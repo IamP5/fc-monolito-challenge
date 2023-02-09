@@ -18,6 +18,7 @@ export default class AddClientUseCase {
       id: new Id(input.id) || new Id(),
       name: input.name,
       email: input.email,
+      document: input.document,
       address: input.address,
     };
 
@@ -28,7 +29,15 @@ export default class AddClientUseCase {
       id: client.id.id,
       name: client.name,
       email: client.email,
-      address: client.address,
+      document: client.document,
+      address: {
+        street: client.address.street,
+        number: client.address.number,
+        complement: client.address.complement,
+        city: client.address.city,
+        state: client.address.state,
+        zipCode: client.address.zipCode,
+      },
       createdAt: client.createdAt,
       updatedAt: client.updatedAt,
     };
