@@ -1,6 +1,3 @@
-import Address from "../../domain/address.valueobject";
-import Invoice from "../../domain/invoice.entity";
-import Product from "../../domain/product.entity";
 import { GenerateInvoiceUseCaseInputDto } from "./generate-invoice.dto";
 import GenerateInvoiceUseCase from "./generate-invoice.usecase";
 
